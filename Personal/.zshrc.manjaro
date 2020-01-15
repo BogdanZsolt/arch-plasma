@@ -3,13 +3,14 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/shiru/.oh-my-zsh"
+
+#IP address for live server (browser-sync)
 export SERVER_IP=`hostname -i`
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="bira"
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="fino"
 
 # Set list of themes to pick from when loading at random
@@ -101,16 +102,15 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 alias vim="nvim"
 alias update="sudo pacman -Syy"
 alias upgrade="sudo pacman -Suyy --noconfirm"
 alias install="sudo pacman -S --noconfirm"
 alias remove="sudo pacman -R --noconfirm"
-alias mirror="sudo reflector --protocol https --country Hungary --country Germany --country Netherland --latest 50 --number 20 --sort rate --save /etc/pacman.d/mirrorlist"
+alias mirror="sudo pacman-mirrors --country Hungary,Germany,Austria --protocol https --api --set-branch stable"
 alias orph='sudo pacman -Rns $(pacman -Qtdq)'
 alias serve="browser-sync start --server --files . --no-notify --host $SERVER_IP --port 5000 --browser google-chrome-stable"
 
 neofetch
-

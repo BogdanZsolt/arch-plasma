@@ -17,8 +17,8 @@ set -e
 
 echo "Installing fonts from Arch Linux repo"
 
-sh AUR/install-ttf-mac-fonts-v*.sh
 sh AUR/install-ttf-font-awesome-v*.sh
+sh AUR/install-ttf-mac-fonts-v*.sh
 sudo pacman -S adobe-source-sans-pro-fonts --noconfirm --needed
 sudo pacman -S cantarell-fonts --noconfirm --needed
 sudo pacman -S noto-fonts --noconfirm --needed

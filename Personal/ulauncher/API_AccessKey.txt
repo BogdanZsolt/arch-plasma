@@ -1,0 +1,2 @@
+http://data.fixer.io/api/
+access_key=bf9ff446521326a4f9370fb45063f32d
