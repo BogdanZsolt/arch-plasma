@@ -26,13 +26,13 @@ sudo pacman -S --noconfirm --needed kde-applications-meta
 echo "Installing category Development"
 
 sh AUR/install-code-v*.sh
-sh AUR/install-sublime-text-v*.sh
-sudo pacman -S --noconfirm --needed atom
+#sh AUR/install-sublime-text-v*.sh
+#sudo pacman -S --noconfirm --needed atom
 
 echo "Installing category Graphics"
 
 sudo pacman -S --noconfirm --needed inkscape
-sudo pacman -S --noconfirm --needed ristretto
+#sudo pacman -S --noconfirm --needed ristretto
 
 echo "Installing category Internet"
 
@@ -45,7 +45,7 @@ sudo pacman -S --noconfirm --needed firefox
 echo "Installing category Multimedia"
 
 sh AUR/install-spotify-v*.sh
-sudo pacman -S --noconfirm --needed krita
+#sudo pacman -S --noconfirm --needed krita
 #sudo pacman -S --noconfirm --needed kdenlive
 sudo pacman -S --noconfirm --needed simplescreenrecorder
 sudo pacman -S --noconfirm --needed vlc

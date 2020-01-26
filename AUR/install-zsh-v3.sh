@@ -275,16 +275,16 @@ sudo sed -i 's/ZSH_THEME=\"robbyrussell\"/ZSH_THEME=\"random\"/g' ~/.zshrc
 # go find the hidden .zshrc file and look for ZSH_THEME="robbyrussell" (CTRL+H to find hidden files)
 # change this to ZSH_THEME="random"
 
-echo '
+echo " 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-alias update="sudo pacman -Syy"
-alias upgrade="sudo pacman -Suyy --noconfirm"
-alias install="sudo pacman -S --noconfirm"
-alias remove="sudo pacman -R --noconfirm"
-alias mirror="sudo reflector --protocol https --country Hungary --country Germany --country Netherland --latest 50 --number 20 --sort rate --save /etc/pacman.d/mirrorlist"
-alias orph='sudo pacman -Rns $(pacman -Qtdq)'
+alias update=\"sudo pacman -Syy\"
+alias upgrade=\"sudo pacman -Suyy --noconfirm\"
+alias install=\"sudo pacman -S --noconfirm\"
+alias remove=\"sudo pacman -R --noconfirm\"
+alias mirror=\"sudo reflector --protocol https --country Hungary --country Germany --country Netherland --latest 50 --number 20 --sort rate --save /etc/pacman.d/mirrorlist\"
+alias orph='sudo pacman -Rns \$(pacman -Qtdq)'
 
 neofetch
-' >>  ~/.zshrc
+" >>  ~/.zshrc
