@@ -6,8 +6,6 @@ set -e
 # Website	:	https://www.arcolinux.info
 # Website	:	https://www.arcolinux.com
 # Website	:	https://www.arcolinuxd.com
-# Website	:	https://www.arcolinuxb.com
-# Website	:	https://www.arcolinuxiso.com
 # Website	:	https://www.arcolinuxforum.com
 ##################################################################################################################
 #
@@ -38,51 +36,59 @@ package="teamviewer"
 #checking if application is already installed or else install with aur helpers
 if pacman -Qi $package &> /dev/null; then
 
-		tput setaf 2
 		echo "################################################################"
 		echo "################## "$package" is already installed"
 		echo "################################################################"
-		tput sgr0
 
 else
 
 	#checking which helper is installed
 	if pacman -Qi yay &> /dev/null; then
 
-		tput setaf 3
 		echo "################################################################"
 		echo "######### Installing with yay"
 		echo "################################################################"
-		tput sgr0
-
 		yay -S --noconfirm $package
 
 	elif pacman -Qi trizen &> /dev/null; then
 
-		tput setaf 3
 		echo "################################################################"
 		echo "######### Installing with trizen"
 		echo "################################################################"
-		tput sgr0
 		trizen -S --noconfirm --needed --noedit $package
+
+	elif pacman -Qi yaourt &> /dev/null; then
+
+		echo "################################################################"
+		echo "######### Installing with yaourt"
+		echo "################################################################"
+		yaourt -S --noconfirm $package
+
+	elif pacman -Qi pacaur &> /dev/null; then
+
+		echo "################################################################"
+		echo "######### Installing with pacaur"
+		echo "################################################################"
+		pacaur -S --noconfirm --noedit  $package
+
+	elif pacman -Qi packer &> /dev/null; then
+
+		echo "################################################################"
+		echo "######### Installing with packer"
+		echo "################################################################"
+		packer -S --noconfirm --noedit  $package
 
 	fi
 
-fi
+	# Just checking if installation was successful
+	if pacman -Qi $package &> /dev/null; then
 
-
-# Just checking if installation was successful
-if pacman -Qi $package &> /dev/null; then
-
-	tput setaf 2
 	echo "################################################################"
-	echo "#########  Checking ..."$package" has been installed"
+	echo "#########  "$package" has been installed"
 	echo "################################################################"
-	tput sgr0
 
-else
+	else
 
-	tput setaf 1
 	echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 	echo "!!!!!!!!!  "$package" has NOT been installed"
 	echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
@@ -92,11 +98,9 @@ else
 	echo "Include = /etc/pacman.d/mirrorlist"
 	echo "Include this mirrorlist as well"
 	sleep 2
-	tput sgr0
+	fi
 
 fi
-
-#----------------------------------------------------------------------------------
 
 sudo systemctl enable teamviewerd.service
 sudo systemctl start teamviewerd.service
